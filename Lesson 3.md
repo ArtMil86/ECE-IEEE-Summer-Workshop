@@ -29,10 +29,6 @@
 
 ---
 
-
-/*
-
-
 ✅ Your challenge:
   - Set up the Trig and Echo pins in setup()
   - Write the trigger pulse code inside loop()
