@@ -26,7 +26,9 @@
 👉 Each side has:
    - 1 pin for direction (DIR)
    - 1 pin for speed (SPD)
+
 👉 Students: test HIGH or LOW to figure out forward/backward.
+
 👉 Use analogWrite() for speed control.
 
 --- 
