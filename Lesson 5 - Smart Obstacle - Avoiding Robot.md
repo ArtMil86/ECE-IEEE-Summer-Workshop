@@ -187,7 +187,7 @@ void IIC_end() {
 }
 ```
 ---
-##Hint:
+## Hint:
 ```cpp
 // To move left motor forward:
 //   digitalWrite(M1_DIR, LOW);
