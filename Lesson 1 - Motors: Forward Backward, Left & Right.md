@@ -19,15 +19,6 @@
 - 1 **PWM speed pin** controlled with `analogWrite()`
 
 ---
-
-## 📄 Student Template Code
-
-```cpp
-/*
-Keyestudio 4WD BT Car V2.0
-Lesson 1 — Motors
-STUDENT TEMPLATE
-
 ✅ This robot has 2 motor channels:
   M1 = Left side wheels
   M2 = Right side wheels
@@ -38,6 +29,9 @@ STUDENT TEMPLATE
 
 👉 Students: test HIGH or LOW to figure out forward/backward.
 👉 Use analogWrite() for speed control.
+--- 
+## 📄 Student Template Code
+```cpp
 */
 
 // === MOTOR 1 (LEFT SIDE) ===
