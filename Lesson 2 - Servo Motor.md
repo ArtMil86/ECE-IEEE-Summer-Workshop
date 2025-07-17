@@ -29,9 +29,13 @@
 
 ---
 ## Goal: 
+
 ✅ Uses Servo library.
+
 ✅ Pin 9 = Servo signal.
+
 ✅ Sweeps servo back and forth.
+
 ✅ Students: change delay() to see how speed changes.
 
 ---
