@@ -19,10 +19,9 @@
 - 1 **PWM speed pin** controlled with `analogWrite()`
 
 ---
-✅ This robot has 2 motor channels:
+## ✅ This robot has 2 motor channels:
   M1 = Left side wheels
   M2 = Right side wheels
-
 👉 Each side has:
    - 1 pin for direction (DIR)
    - 1 pin for speed (SPD)
