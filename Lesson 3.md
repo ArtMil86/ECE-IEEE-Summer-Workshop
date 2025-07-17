@@ -31,9 +31,7 @@
 
 
 /*
-Keyestudio 4WD BT Car V2.0
-Lesson 3 — Ultrasonic Sensor
-STUDENT CHALLENGE TEMPLATE
+
 
 ✅ Your challenge:
   - Set up the Trig and Echo pins in setup()
