@@ -29,18 +29,16 @@
 
 ---
 
-## 💾 Arduino Code
 
-```cpp
-/*
-Keyestudio 4WD BT Car V2.0
-Lesson — LED Matrix LEFT to RIGHT SCROLL
+## Lesson — LED Matrix LEFT to RIGHT SCROLL
 
 ✅ Scrolls a custom pattern left to right
 ✅ New bits appear on the right
 ✅ Uses simple bit-shifting
-*/
 
+---
+## 💾 Arduino Code
+'''cpp
 // 👉 Example pattern — replace with your own 32 bytes
 unsigned char pattern[] = {
   0x44, 0x00, 0x7C, 0x00, 0x44, 0x00, 0x00, 0x00,  // I
