@@ -51,17 +51,15 @@ void setup() {
   Serial.begin(9600);  // Start Serial Monitor
 
   // 👉 TODO: Setup the pin modes
-  pinMode(trigPin, OUTPUT);   // Make trigPin an OUTPUT
-  pinMode(echoPin, INPUT);    // Make echoPin an INPUT
+  // Make trigPin an OUTPUT
+  // Make echoPin an INPUT
 }
 
 void loop() {
   // 👉 TODO: Write the trigger pulse code!
-  digitalWrite(trigPin, LOW);      // Clear trig pin
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);     // Trigger pulse
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+  // 1) Set trigPin LOW for 2 microseconds
+  // 2) Set trigPin HIGH for 10 microseconds
+  // 3) Set trigPin LOW again
 
   // Measure echo time
   duration = pulseIn(echoPin, HIGH);
@@ -77,5 +75,5 @@ void loop() {
   Serial.print(inches);
   Serial.println(" inches");
 
-  delay(500); // Small delay between readings
+  delay(500);
 }
