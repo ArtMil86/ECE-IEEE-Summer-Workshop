@@ -30,7 +30,6 @@ Make sure to connect the motor driver to the appropriate pins and that the PWM p
 
 ```cpp
 /*
-/*
 Keyestudio 4WD BT Car V2.0
 Lesson 1 — Motors
 STUDENT TEMPLATE
