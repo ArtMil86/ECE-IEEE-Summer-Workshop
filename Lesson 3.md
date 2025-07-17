@@ -39,7 +39,7 @@
 ```cpp
 
 👉 Hints are provided in comments.
-*/
+
 
 int trigPin = 12;  // Trigger pin
 int echoPin = 13;  // Echo pin
