@@ -36,6 +36,8 @@
 - New bits appear on the right
 - Uses simple bit-shifting
 
+Here is a website that can help you create your own design: 
+https://dotmatrixtool.com/# 
 ---
 ## 💾 Arduino Code
 ```cpp
