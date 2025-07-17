@@ -29,7 +29,7 @@ All lessons include:
 | 1 | Motors: Forward, Backward, Turning | [Go to Lesson 1](./lesson1-motors.md) |
 | 2 | Servo Motor Basics | [Go to Lesson 2](./lesson2-servo.md) |
 | 3 | Ultrasonic Sensor | [Go to Lesson 3](./lesson3-ultrasonic.md) |
-| 4 | LED Matrix Display | Lesson 4 - 8x16 LED Matrix.md |
+| 4 | LED Matrix Display | [Go to Lesson 4](./Lesson 4 - 8x16 LED Matrix.md) |
 | 5 | Final Challenge: Obstacle-Avoiding Robot | [Go to Lesson 5](./lesson5-smartrobot.md) |
 | 🚧 | Programming Tips (if, for, libraries) | [Go to Programming Basics](./programming-basics.md) |
 
