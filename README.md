@@ -26,11 +26,11 @@ All lessons include:
 
 | Lesson | Title | Link |
 |--------|-------|------|
-| 1 | Motors: Forward, Backward, Turning | [[Go to Lesson 1](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%201%20-%20Motors%3A%20Forward%20Backward%2C%20Left%20%26%20Right.md) |
-| 2 | Servo Motor Basics | [Go to Lesson 2](./lesson2-servo.md) |
-| 3 | Ultrasonic Sensor | [Go to Lesson 3](./lesson3-ultrasonic.md) |
+| 1 | Motors: Forward, Backward, Turning | [Go to Lesson 1](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%201%20-%20Motors%3A%20Forward%20Backward%2C%20Left%20%26%20Right.md) |
+| 2 | Servo Motor Basics | [Go to Lesson 2](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%202%20-%20Servo%20Motor.md) |
+| 3 | Ultrasonic Sensor | [Go to Lesson 3](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%203%20Ultrasonic%20Sensor.md) |
 | 4 | LED Matrix Display | [Go to Lesson 4 - 8x16 LED Matrix](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%204%20-%208x16%20LED%20Matrix.md) |
-| 5 | Final Challenge: Obstacle-Avoiding Robot | [Go to Lesson 5](./lesson5-smartrobot.md) |
+| 5 | Final Challenge: Obstacle-Avoiding Robot | [Go to Lesson 5](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%205%20-%20Smart%20Obstacle%20-%20Avoiding%20Robot.md) |
 | 🚧 | Programming Tips (if, for, libraries) | [Go to Programming Basics](./programming-basics.md) |
 
 ---
