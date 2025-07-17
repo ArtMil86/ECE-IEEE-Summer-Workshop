@@ -29,9 +29,7 @@
 
 ---
 
-## 💾 Arduino Code (Student Challenge Template)
 
-```cpp
 /*
 Keyestudio 4WD BT Car V2.0
 Lesson 3 — Ultrasonic Sensor
@@ -40,6 +38,11 @@ STUDENT CHALLENGE TEMPLATE
 ✅ Your challenge:
   - Set up the Trig and Echo pins in setup()
   - Write the trigger pulse code inside loop()
+---
+
+## 💾 Arduino Code (Student Challenge Template)
+
+```cpp
 
 👉 Hints are provided in comments.
 */
