@@ -34,7 +34,6 @@
 --- 
 ## 📄 Student Template Code
 ```cpp
-*/
 
 // === MOTOR 1 (LEFT SIDE) ===
 #define M1_DIR 4   // Direction pin for Left side
