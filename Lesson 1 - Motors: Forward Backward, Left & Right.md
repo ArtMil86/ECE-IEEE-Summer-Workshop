@@ -223,4 +223,4 @@ Once you've tested `driveForward()`, try these:
 
 ---
 
-👉 [Next: Lesson 2 - Servo Motor Basics](./lesson2-servo.md)
+👉 [Next: Lesson 2 - Servo Motor Basics](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%202%20-%20Servo%20Motor.md)
