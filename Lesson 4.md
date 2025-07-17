@@ -84,10 +84,10 @@ void loop() {
 
         IIC_end();
         IIC_start();
-        IIC_send(0x8A);  // Refresh display
+        IIC_send(0x8A);
         IIC_end();
 
-        delay(100);  // Scroll speed
+        delay(100);
       }
     }
   }
@@ -118,7 +118,11 @@ void IIC_send(unsigned char send_data) {
   for (char i = 0; i < 8; i++) {
     digitalWrite(SCL_Pin, LOW);
     delayMicroseconds(3);
-    digitalWrite(SDA_Pin, (send_data & 0x01) ? HIGH : LOW);
+    if (send_data & 0x01) {
+      digitalWrite(SDA_Pin, HIGH);
+    } else {
+      digitalWrite(SDA_Pin, LOW);
+    }
     delayMicroseconds(3);
     digitalWrite(SCL_Pin, HIGH);
     delayMicroseconds(3);
