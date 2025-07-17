@@ -32,9 +32,9 @@
 
 ## Lesson — LED Matrix LEFT to RIGHT SCROLL
 
-✅ Scrolls a custom pattern left to right
-✅ New bits appear on the right
-✅ Uses simple bit-shifting
+- Scrolls a custom pattern left to right
+- New bits appear on the right
+- Uses simple bit-shifting
 
 ---
 ## 💾 Arduino Code
