@@ -38,7 +38,7 @@
 
 ---
 ## 💾 Arduino Code
-'''cpp
+```cpp
 // 👉 Example pattern — replace with your own 32 bytes
 unsigned char pattern[] = {
   0x44, 0x00, 0x7C, 0x00, 0x44, 0x00, 0x00, 0x00,  // I
