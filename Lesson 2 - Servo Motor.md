@@ -28,21 +28,15 @@
 📌 **Important**: Always power the servo from 5V and make sure GND is shared with the Arduino.
 
 ---
-
-## 💾 Arduino Code
-
-```cpp
-/*
-Keyestudio 4WD BT Car V2.0
-Lesson 2 — Servo Motor
-STUDENT TEMPLATE
-
+## Goal: 
 ✅ Uses Servo library.
 ✅ Pin 9 = Servo signal.
 ✅ Sweeps servo back and forth.
 ✅ Students: change delay() to see how speed changes.
-*/
 
+---
+## 💾 Arduino Code
+```cpp
 #include <Servo.h>
 
 Servo myServo;  // Create Servo object
