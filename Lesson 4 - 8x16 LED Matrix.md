@@ -108,6 +108,9 @@ Each HEX value controls one column of the matrix.
 
 ## 🛠️ Step 3: Full Template Example (Smiley Face)
 
+<img width="482" height="441" alt="image" src="https://github.com/user-attachments/assets/f4120c0d-04a4-4f1b-99d8-a61cd79e144c" />
+
+
 ```cpp
 unsigned char smile[] = {
   0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40,
