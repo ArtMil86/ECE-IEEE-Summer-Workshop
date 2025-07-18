@@ -51,18 +51,6 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 
 ---
 
-## 🖼️ Embedding Robot Images
-
-Place images like wiring diagrams into your `/images/` folder on GitHub and embed like this:
-
-```markdown
-![Motor Diagram](/images/motor_diagram_1.png)
-![Wiring Diagram](/images/motor_driver_wiring.png)
-![Pin Map](/images/pin_connection_labeled.png)
-```
-
----
-
 ## 🧑‍💻 Basic Arduino Program Structure
 
 Every Arduino sketch has two core functions:
