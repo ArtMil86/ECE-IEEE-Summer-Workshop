@@ -11,7 +11,7 @@
 ---
 
 ## 🧠 What Is a Servo Motor?
-<img width="535" height="244" alt="image" src="https://github.com/user-attachments/assets/67ebb1d9-24ec-46a9-9a3f-c6d2876802be" />
+<img width="713" height="310" alt="image" src="https://github.com/user-attachments/assets/acecd15d-0b2a-4dbf-b168-d0948b2bdaaf" />
 
 A **servo motor** is a special kind of motor that rotates to a **specific angle**, usually between **0° and 180°**. It is often used for precise control of motion in robotics, such as steering, gripping, or sensor positioning.
 
@@ -26,8 +26,7 @@ A typical servo contains:
 
 The servo receives **PWM signals** from the Arduino. The signal width determines the target angle:
 
-<img width="335" height="144" alt="image" src="https://github.com/user-attachments/assets/21a91e49-be3d-41e4-b567-2849354348cd" />
-
+<img width="535" height="244" alt="image" src="https://github.com/user-attachments/assets/c1fe0d9e-cc57-43a0-ada4-5f06151fb35f" />
 
 * Short pulse (e.g. 1 ms) → 0°
 * Medium pulse (1.5 ms) → 90°
