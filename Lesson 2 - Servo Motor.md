@@ -1,61 +1,158 @@
 # 🧭 Lesson 2 — Servo Motor (Keyestudio 4WD BT Car)
 
 ## 🎯 Objectives
-- Use the `Servo` library to control a standard hobby servo motor.
-- Connect the servo to pin `9` and control its angle with `write()`.
-- Learn how `delay()` affects movement speed.
-- Practice **for-loop** logic for sweeping behavior.
+
+* Understand what a servo motor is and how it works.
+* Learn how to control a servo using the `Servo` library in Arduino.
+* Use a `for` loop to create a sweeping motion from 0° to 180°.
+* Learn how `delay()` affects motion speed and servo behavior.
+* Practice timing and smooth control without damaging the motor.
 
 ---
 
-## 🧠 Concepts
+## 🧠 What Is a Servo Motor?
 
-- Servos rotate to a **specific angle** between 0° and 180°.
-- The angle is set using `myServo.write(angle)`.
-- You can use `for` loops to **sweep** the servo gradually.
-- Changing the `delay()` affects **speed of rotation**.
+A **servo motor** is a special kind of motor that rotates to a **specific angle**, usually between **0° and 180°**. It is often used for precise control of motion in robotics, such as steering, gripping, or sensor positioning.
+
+### 🧩 Inside a Servo
+
+A typical servo contains:
+
+* A **small DC motor**
+* A **gearbox**
+* A **position sensor** (potentiometer)
+* Control circuitry
+
+The servo receives **PWM signals** from the Arduino. The signal width determines the target angle:
+
+* Short pulse (e.g. 1 ms) → 0°
+* Medium pulse (1.5 ms) → 90°
+* Long pulse (2 ms) → 180°
+
+> ℹ️ Most servos operate within a PWM signal that repeats every 20 ms (50 Hz).
+
+---
+
+## 🔌 Pin Wiring Table
+
+| Servo Wire   | Connect To |
+| ------------ | ---------- |
+| Orange/White | **D9**     |
+| Red (VCC)    | **5V**     |
+| Brown/Black  | **GND**    |
+
+⚠️ **Important:** Servos require more current than typical sensors. Always:
+
+* Use the 5V pin for power.
+* Make sure **GND is shared** between servo and Arduino.
+* Use **external power** if running multiple servos.
 
 ---
 
-## 🔌 Wiring Instructions
+## 🧠 What Is `delay()`?
 
-| Servo Wire     | Connect To  |
-|----------------|-------------|
-| Orange/White   | **Pin 9**   |
-| Red (VCC)      | **5V**      |
-| Brown/Black    | **GND**     |
+The `delay()` function in Arduino pauses the program for a number of **milliseconds (ms)**.
 
-📌 **Important**: Always power the servo from 5V and make sure GND is shared with the Arduino.
+```cpp
+// Pause for 15 milliseconds
+delay(15);
+```
+
+* `delay(1000)` → 1 second
+* `delay(15)` → 15 **milliseconds**, or 0.015 seconds
+
+### ⏳ Why It Matters for Servos
+
+Servos **don’t instantly jump** to a new angle. They need time to rotate.
+
+* **Smaller delay** → Faster sweep
+* **Larger delay** → Slower sweep
+
+If the delay is **too short**, the servo may jitter or get damaged trying to catch up.
+
+✅ Recommended delay: between **10–30 ms** for 1° steps.
 
 ---
-## Goal: 
 
-✅ Uses Servo library.
+## 🔁 What Is a `for` Loop?
 
-✅ Pin 9 = Servo signal.
+A `for` loop lets us **repeat code** a specific number of times. Useful for slowly moving a servo through angles.
 
-✅ Sweeps servo back and forth.
+```cpp
+for (int angle = 0; angle <= 180; angle++) {
+  myServo.write(angle);  // Move to next angle
+  delay(15);             // Wait so servo can catch up
+}
+```
 
-✅ Students: change delay() to see how speed changes.
+> 🧠 `angle++` means "increase angle by 1 each time"
+
+You can reverse the direction:
+
+```cpp
+for (int angle = 180; angle >= 0; angle--) {
+  myServo.write(angle);
+  delay(15);
+}
+```
 
 ---
-## 💾 Arduino Code
+
+## 💾 Arduino Sweep Code (Using Servo Library)
+
+📌 This code uses the built-in `Servo.h` library.
+
 ```cpp
 #include <Servo.h>
 
 Servo myServo;  // Create Servo object
 
 void setup() {
-  myServo.attach(9);  // Attach servo signal wire to pin 9
+  myServo.attach(9);  // Connect signal wire to pin 9
 }
 
 void loop() {
-  // Sweep from 0 to 180 degrees
+  // Sweep from 0° to 180°
   for (int angle = 0; angle <= 180; angle++) {
-    myServo.write(angle);   // Set servo to angle
-    delay(40);              // Smaller delay = faster sweep
+    myServo.write(angle);
+    delay(15);  // 15 ms wait — safe and smooth
   }
 
-  // Challenge: How would you continue this to rotate back to 0
-  // without "jumping" suddenly? Try adding another for-loop.
+  // Sweep back from 180° to 0°
+  for (int angle = 180; angle >= 0; angle--) {
+    myServo.write(angle);
+    delay(15);
+  }
 }
+```
+
+📤 Upload this code and observe your servo sweep smoothly!
+
+---
+
+## 🎯 Student Challenges
+
+Try modifying the code to explore different behaviors:
+
+* 🐢 Make it sweep slowly using `delay(30)`
+* 🏎️ Make it sweep faster using `delay(10)`
+* 🔁 Try sweeping from 45° to 135° only
+* 🎯 Bonus: Try jumping to random angles with `random(0, 180)`
+
+⏳ Don't stress about perfection — explore and observe!
+
+---
+
+## 📦 Quick Reference Table
+
+| Concept         | Function            | Description                           |
+| --------------- | ------------------- | ------------------------------------- |
+| Attach servo    | `myServo.attach(9)` | Connects servo signal to pin 9        |
+| Set angle       | `myServo.write(90)` | Moves servo to 90°                    |
+| Pause program   | `delay(15)`         | Waits 15 milliseconds (0.015 seconds) |
+| For loop (up)   | `for (...) ++`      | Counts upward (0 → 180)               |
+| For loop (down) | `for (...) --`      | Counts downward (180 → 0)             |
+
+---
+
+👉 [Next: Lesson 3 - Ultrasonic Sensor](./lesson3-ultrasonic.md)
