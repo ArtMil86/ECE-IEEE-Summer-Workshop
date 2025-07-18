@@ -1,4 +1,4 @@
-# 🧠 Lesson 4 — 8x16 LED Matrix Display (Keyestudio 4WD BT Car)
+<img width="932" height="434" alt="image" src="https://github.com/user-attachments/assets/600d7d43-42a8-422c-a413-cd28058931c4" /># 🧠 Lesson 4 — 8x16 LED Matrix Display (Keyestudio 4WD BT Car)
 
 ## 🎯 Objectives
 
@@ -103,6 +103,16 @@ unsigned char smile[] = {
 ```
 
 Each HEX value controls one column of the matrix.
+
+**When Generating design, only copy the HEX value line. For Example:**
+<img width="332" height="234" alt="image" src="https://github.com/user-attachments/assets/925f42c8-8719-44f8-8032-eac4da00bc0b" />
+The hex values: 
+<img width="958" height="252" alt="image" src="https://github.com/user-attachments/assets/e90b8c24-98fe-489e-ab46-5901793aa03e" />
+```cpp
+unsigned char smile[] = {
+0x00, 0x00, 0x40, 0x20, 0x10, 0x08, 0x04, 0xfa, 0x04, 0x08, 0x10, 0x20, 0x40, 0x00, 0x00, 0x00
+};
+```
 
 ---
 
