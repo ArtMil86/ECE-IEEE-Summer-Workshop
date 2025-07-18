@@ -34,6 +34,8 @@ Each LED can be turned **ON** or **OFF** individually using special data called 
 
 ## 🧠 How It Works Internally
 
+<img width="640" height="302" alt="image" src="https://github.com/user-attachments/assets/f8e45506-98b1-47c3-9206-3f943ab9a79e" />
+
 The display uses a special chip called **AiP1640** to light up the pixels. The Arduino talks to this chip using just **2 pins**:
 
 | Function | Pin |
