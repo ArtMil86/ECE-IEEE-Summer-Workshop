@@ -152,7 +152,7 @@ Try modifying the code to explore different behaviors:
 
 | Concept         | Function            | Description                           |
 | --------------- | ------------------- | ------------------------------------- |
-| Attach servo    | `myServo.attach(9)` | Connects servo signal to pin 9        |
+| Attach servo    | `myServo.attach(9)` | Connects servo signal to pin A3        |
 | Set angle       | `myServo.write(90)` | Moves servo to 90°                    |
 | Pause program   | `delay(15)`         | Waits 15 milliseconds (0.015 seconds) |
 | For loop (up)   | `for (...) ++`      | Counts upward (0 → 180)               |
