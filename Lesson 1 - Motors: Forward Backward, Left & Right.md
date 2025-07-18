@@ -125,10 +125,13 @@ void loop() {
   delay(1000);
 }
 ```
+---
+## How run the robot car:
+1. Upload this code to the robot
+2. Then unplug the blue cable from the robot
+3. Flip the switch on the robot car to see it move forward!
 
 🧪 Try changing HIGH and LOW for direction pins — your wiring may vary.
-
-📤 Upload and run this code to see the robot move forward!
 
 ---
 
