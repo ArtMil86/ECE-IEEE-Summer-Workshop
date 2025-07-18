@@ -11,7 +11,7 @@
 ---
 
 ## 🧠 What Is a Servo Motor?
-<img width="408" height="290" alt="image" src="https://github.com/user-attachments/assets/9b6c902f-96f2-49f4-8980-50bd27dbe836" />
+<img width="535" height="244" alt="image" src="https://github.com/user-attachments/assets/67ebb1d9-24ec-46a9-9a3f-c6d2876802be" />
 
 A **servo motor** is a special kind of motor that rotates to a **specific angle**, usually between **0° and 180°**. It is often used for precise control of motion in robotics, such as steering, gripping, or sensor positioning.
 
