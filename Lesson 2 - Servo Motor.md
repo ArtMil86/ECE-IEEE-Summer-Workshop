@@ -26,7 +26,8 @@ A typical servo contains:
 
 The servo receives **PWM signals** from the Arduino. The signal width determines the target angle:
 
-<img width="898" height="448" alt="image" src="https://github.com/user-attachments/assets/807507ca-430c-48a9-a923-89a030a725a6" />
+<img width="335" height="144" alt="image" src="https://github.com/user-attachments/assets/21a91e49-be3d-41e4-b567-2849354348cd" />
+
 
 * Short pulse (e.g. 1 ms) → 0°
 * Medium pulse (1.5 ms) → 90°
