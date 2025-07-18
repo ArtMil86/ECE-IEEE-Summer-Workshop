@@ -126,7 +126,7 @@ void loop() {
 }
 ```
 ---
-## How run the robot car:
+## HOW TO: Run the robot car:
 1. Upload this code to the robot
 2. Then unplug the blue cable from the robot
 3. Flip the switch on the robot car to see it move forward!
