@@ -113,7 +113,7 @@ for (int angle = 180; angle >= 0; angle--) {
 Servo myServo;  // Create Servo object
 
 void setup() {
-  myServo.attach(9);  // Connect signal wire to pin 9
+  myServo.attach(A3);  // Connect signal wire to pin A3
 }
 
 void loop() {
