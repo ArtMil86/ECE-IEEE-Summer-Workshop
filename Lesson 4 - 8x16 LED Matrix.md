@@ -1,144 +1,300 @@
-# 💡 Lesson 4 — 8x16 LED Matrix (Keyestudio 4WD BT Car)
+# 🧠 Lesson 4 — 8x16 LED Matrix Display (Keyestudio 4WD BT Car)
 
 ## 🎯 Objectives
-- Learn how to control a **dot matrix display** using I²C and bit-shifting
-- Scroll a custom pattern across the screen from **left to right**
-- Practice manipulating binary data with `<<`, `>>`, and custom shifting
-- Create your own designs using **byte arrays**
+
+* Understand how an 8x16 LED Matrix works and what it can display.
+* Learn how to wire and control the LED matrix using two digital pins (SCL and SDA).
+* Use Arduino code to display basic images like a smiley face.
+* Understand how hexadecimal arrays light up pixels on the matrix.
+* Learn how to use a **modulus tool** to create your own patterns.
+* Learn how to animate sequences like "start → forward → stop" with delays.
 
 ---
 
-## 🧠 Concepts
+## 🧩 What Is an LED Matrix?
 
-- Each column of an LED matrix is represented as **1 byte** (8 bits).
-- You scroll by **bit-shifting** each byte and merging adjacent bytes.
-- Custom characters or patterns can be encoded as arrays of bytes.
+An **LED matrix** is a grid of small LEDs arranged in rows and columns. The 8x16 matrix has:
 
----
+* **8 rows** tall
+* **16 columns** wide
 
-## 🔌 Wiring Instructions
+So, 8 × 16 = **128 LEDs total**!
 
-| LED Matrix Pin | Arduino Pin |
-|----------------|-------------|
-| SCL            | A5          |
-| SDA            | A4          |
-| VCC            | 5V          |
-| GND            | GND         |
+Each LED can be turned **ON** or **OFF** individually using special data called **binary** or **hexadecimal**.
 
-📌 Make sure to power the matrix from 5V and confirm the **SCL** and **SDA** lines match the I²C configuration (A5 and A4 on most Arduino Uno boards).
+### 🔦 Real-World Examples
+
+* Emoji faces 🤖
+* Arrow indicators ↔️
+* Animations or icons 🎮
 
 ---
 
+## 🧠 How It Works Internally
 
-## Lesson — LED Matrix LEFT to RIGHT SCROLL
+The display uses a special chip called **AiP1640** to light up the pixels. The Arduino talks to this chip using just **2 pins**:
 
-- Scrolls a custom pattern left to right
-- New bits appear on the right
-- Uses simple bit-shifting
+| Function | Pin |
+| -------- | --- |
+| Clock    | A5  |
+| Data     | A4  |
 
-Here is a website that can help you create your own design: 
-https://dotmatrixtool.com/# 
----
-## 💾 Arduino Code
+This is similar to I2C communication but follows its own custom timing. The Arduino sends bytes to the AiP1640 chip, and each **bit** in those bytes turns ON or OFF an LED in a row.
+
+### 💡 How Bits Light Up LEDs
+
+Each LED row is controlled by **1 byte** = 8 bits.
+
+Example:
+
 ```cpp
-// 👉 Example pattern — replace with your own 32 bytes
-unsigned char pattern[] = {
-  0x44, 0x00, 0x7C, 0x00, 0x44, 0x00, 0x00, 0x00,  // I
-  0x7C, 0x00, 0x54, 0x00, 0x54, 0x00, 0x00, 0x00,  // E
-  0x7C, 0x00, 0x54, 0x00, 0x54, 0x00, 0x00, 0x00,  // E
-  0x7C, 0x00, 0x54, 0x00, 0x54, 0x00, 0x00, 0x00   // E
+0b10101010 → ON, OFF, ON, OFF, ON, OFF, ON, OFF
+```
+
+Or using HEX:
+
+```cpp
+0xAA = 0b10101010
+```
+
+Each pattern is **16 bytes long**, one for each column!
+
+---
+
+## 🔌 Step 1: Wire the LED Matrix
+
+| LED Matrix Pin | Connect To | Description  |
+| -------------- | ---------- | ------------ |
+| GND            | GND        | Ground       |
+| VCC            | 5V         | Power Supply |
+| SCL            | A5         | Clock Pin    |
+| SDA            | A4         | Data Pin     |
+
+📌 **Note:** These two pins are not I2C pins. This module just uses the same pins but with a different protocol.
+
+---
+
+## 🎨 Step 2: Design Your Pattern
+
+Go to [dotmatrixtool.com](http://dotmatrixtool.com/#)
+
+### How to use the tool:
+
+1. Set **width to 16** and **height to 8**
+2. Select **Big Endian**
+3. Draw your face or pattern
+4. Click **Generate** → Get a list of **16 HEX numbers**
+
+Example (Smiley Face):
+
+```cpp
+unsigned char smile[] = {
+  0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40,
+  0x40, 0x5c, 0x02, 0x02, 0x02, 0x1c, 0x00, 0x00
+};
+```
+
+Each HEX value controls one column of the matrix.
+
+---
+
+## 🛠️ Step 3: Full Template Example (Smiley Face)
+
+```cpp
+unsigned char smile[] = {
+  0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40,
+  0x40, 0x5c, 0x02, 0x02, 0x02, 0x1c, 0x00, 0x00
 };
 
-#define SCL_Pin A5
-#define SDA_Pin A4
+unsigned char clear[] = {
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+};
 
-void setup() {
+#define SCL_Pin  A5  // Clock pin
+#define SDA_Pin  A4  // Data pin
+
+void setup(){
   pinMode(SCL_Pin, OUTPUT);
   pinMode(SDA_Pin, OUTPUT);
+  matrix_display(clear); // Clear matrix on startup
 }
 
-void loop() {
-  int totalCols = sizeof(pattern);
-  int displayCols = 16;
+void loop(){
+  matrix_display(smile);  // Show smile face
+  delay(2000);            // Wait for 2 seconds
+  matrix_display(clear);  // Clear the screen
+  delay(2000);
+}
 
-  while (true) {
-    for (int shift = 0; shift < 8; shift++) {  // Bit shift
-      for (int pos = 0; pos <= totalCols - displayCols; pos++) {
-        IIC_start();
-        IIC_send(0xC0);
-
-        for (int i = 0; i < displayCols; i++) {
-          unsigned char current = pattern[pos + i];
-          unsigned char next = 0x00;
-          if (pos + i + 1 < totalCols) {
-            next = pattern[pos + i + 1];
-          }
-
-          // Shift left by 'shift' bits to push left
-          // Bring in next byte bits on the right
-          unsigned char col = (current << shift) | (next >> (8 - shift));
-
-          // Flip bits vertically if needed
-          col = flipByte(col);
-
-          IIC_send(col);
-        }
-
-        IIC_end();
-        IIC_start();
-        IIC_send(0x8A);
-        IIC_end();
-
-        delay(100);
-      }
-    }
+void matrix_display(unsigned char matrix_value[]) {
+  IIC_start();            // Start transmission
+  IIC_send(0xc0);         // Set address to start from 0
+  for(int i = 0; i < 16; i++) {
+    IIC_send(matrix_value[i]);  // Send each byte
   }
+  IIC_end();              // End transmission
+  IIC_start();
+  IIC_send(0x8A);         // Set brightness
+  IIC_end();
 }
 
-// === Flip bits vertically if needed ===
-unsigned char flipByte(unsigned char b) {
-  unsigned char rev = 0;
-  for (int i = 0; i < 8; i++) {
-    rev <<= 1;
-    rev |= (b & 0x01);
-    b >>= 1;
-  }
-  return rev;
-}
-
-// === IIC Protocol ===
 void IIC_start() {
-  digitalWrite(SCL_Pin, HIGH);
+  digitalWrite(SCL_Pin,HIGH);
   delayMicroseconds(3);
-  digitalWrite(SDA_Pin, HIGH);
+  digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
-  digitalWrite(SDA_Pin, LOW);
+  digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
 }
 
 void IIC_send(unsigned char send_data) {
-  for (char i = 0; i < 8; i++) {
-    digitalWrite(SCL_Pin, LOW);
+  for(char i = 0; i < 8; i++) {
+    digitalWrite(SCL_Pin,LOW);
     delayMicroseconds(3);
-    if (send_data & 0x01) {
-      digitalWrite(SDA_Pin, HIGH);
-    } else {
-      digitalWrite(SDA_Pin, LOW);
-    }
+    digitalWrite(SDA_Pin, send_data & 0x01);
     delayMicroseconds(3);
-    digitalWrite(SCL_Pin, HIGH);
+    digitalWrite(SCL_Pin,HIGH);
     delayMicroseconds(3);
     send_data >>= 1;
   }
 }
 
 void IIC_end() {
-  digitalWrite(SCL_Pin, LOW);
+  digitalWrite(SCL_Pin,LOW);
   delayMicroseconds(3);
-  digitalWrite(SDA_Pin, LOW);
+  digitalWrite(SDA_Pin,LOW);
   delayMicroseconds(3);
-  digitalWrite(SCL_Pin, HIGH);
+  digitalWrite(SCL_Pin,HIGH);
   delayMicroseconds(3);
-  digitalWrite(SDA_Pin, HIGH);
+  digitalWrite(SDA_Pin,HIGH);
   delayMicroseconds(3);
 }
+```
+
+📤 Upload this and your LED Matrix should show a smile!
+
+---
+
+## 🎯 🧪 Extension Challenge — Animated LED Patterns
+
+Let’s take it to the next level! What if your robot could *talk* with animations?
+
+### 🗂️ Goal:
+
+Display multiple patterns **in sequence**, such as:
+
+> 🟢 Start → 🚗 Move Forward → ⛔ Stop
+
+Here is the continued and refined section right after your Extension Challenge — perfect for the end of Lesson 4 on your GitHub Page. This teaches students how to build their own LED animations step-by-step, and prepares them for advanced experimentation.
+
+You can copy this markdown and paste it directly into your `.md` lesson file on GitHub:
+
+---
+
+## 🧪 Final Challenge — Custom LED Matrix Animation 🎯
+
+You've learned how to show a smiley or an arrow, but now it’s your turn to be the **creator**!
+
+### 🔍 Your Mission:
+
+Build a 3-frame animation using your own designs.
+
+#### 🛠️ Step-by-Step:
+
+1. Go to [dotmatrixtool.com](http://dotmatrixtool.com/#)
+2. Set:
+
+   * **Width = 16**
+   * **Height = 8**
+   * **Endian = Big Endian**
+3. Draw your first symbol (e.g. a waving hand 👋, letter A, car, etc.)
+4. Click **Generate**
+5. Copy the 16 HEX values and store them like this:
+
+```cpp
+unsigned char frame1[] = {
+  0x__, 0x__, ..., 0x__  // Replace with your generated values
+};
+```
+
+🔁 Repeat this for `frame2[]` and `frame3[]`.
+
+---
+
+### 🧠 Example Layout:
+
+```cpp
+unsigned char frame1[] = { /* First pattern HEX */ };
+unsigned char frame2[] = { /* Second pattern HEX */ };
+unsigned char frame3[] = { /* Third pattern HEX */ };
+unsigned char clear[]  = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+```
+
+### 🔂 Animation Loop:
+
+```cpp
+void loop() {
+  matrix_display(frame1);
+  delay(1000);           // Show first frame for 1 second
+
+  matrix_display(frame2);
+  delay(1000);           // Show second frame
+
+  matrix_display(frame3);
+  delay(1000);           // Show third frame
+
+  matrix_display(clear); // Clear screen between loops
+  delay(500);
+}
+```
+
+---
+
+### 🎨 Stretch Challenge Ideas:
+
+| Challenge                 | What to Try                                    |
+| ------------------------- | ---------------------------------------------- |
+| 😃 Emoji Expressions      | Make a happy → neutral → sad animation         |
+| 🚗 Robot Signals          | Add arrows or signals when moving              |
+| 🧠 Use `for` with frames  | Store frames in an array and loop through them |
+| 🌀 Use short delays       | Try `delay(200)` for fast flashing animations  |
+| 🧱 Build a sequence story | Like “HELLO” one letter at a time              |
+
+---
+
+### 🔧 Advanced Looping Example:
+
+```cpp
+unsigned char* animation[] = {frame1, frame2, frame3};
+
+void loop() {
+  for (int i = 0; i < 3; i++) {
+    matrix_display(animation[i]);
+    delay(800);
+  }
+  matrix_display(clear);
+  delay(400);
+}
+```
+
+---
+
+### 💭 Reflect & Share
+
+* What symbols did you create?
+* How did delay affect your animation speed?
+* Can you build a repeating signal, like blink–blink–pause?
+* Post your best animation as a `.ino` file in our GitHub submissions folder!
+
+---
+
+🎉 Well done! You now have full creative power over the LED Matrix.
+Next, we'll combine this display with robot **movement** and **sensors**.
+
+👉 [Next: Lesson 5 — Obstacle Avoidance Integration](./lesson5-integration.md)
+
+---
+
+
