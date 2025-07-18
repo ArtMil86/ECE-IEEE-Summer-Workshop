@@ -11,7 +11,7 @@
 ---
 
 ## 🧠 What Is a Motor?
-<img width="631" height="480" alt="image" src="https://github.com/user-attachments/assets/d728225c-4062-40ec-b4a9-225bc5d6d70f" />
+<img width="531" height="380" alt="image" src="https://github.com/user-attachments/assets/d728225c-4062-40ec-b4a9-225bc5d6d70f" />
 
 A motor converts electrical energy into **motion**.
 Your robot has **4 wheels**, but only **2 motor channels** — one per side:
@@ -39,12 +39,12 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 
 ## 🔌 Pinout Table
 
+<img width="640" height="283" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
+
 | Channel | Controls          | Direction Pin | Speed Pin (PWM) |
 | ------- | ----------------- | ------------- | --------------- |
 | M1      | Left Wheels (x2)  | D4            | D5              |
 | M2      | Right Wheels (x2) | D2            | D6              |
-
-<img width="640" height="283" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
 
 
 ⚠️ Although you have 4 motors total, they are **grouped in pairs** (left and right) — so you only need 2 control channels.
