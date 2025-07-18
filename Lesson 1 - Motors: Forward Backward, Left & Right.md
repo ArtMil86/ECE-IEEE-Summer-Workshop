@@ -39,7 +39,7 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 
 ## 🔌 Pinout Table
 
-<img width="640" height="283" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
+<img width="540" height="183" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
 
 | Channel | Controls          | Direction Pin | Speed Pin (PWM) |
 | ------- | ----------------- | ------------- | --------------- |
