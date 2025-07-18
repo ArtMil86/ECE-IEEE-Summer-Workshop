@@ -67,6 +67,8 @@ Each pattern is **16 bytes long**, one for each column!
 
 ## 🔌 Step 1: Wire the LED Matrix
 
+<img width="540" height="223" alt="image" src="https://github.com/user-attachments/assets/a6856ece-154b-4342-96bf-9dff5195267a" />
+
 | LED Matrix Pin | Connect To | Description  |
 | -------------- | ---------- | ------------ |
 | GND            | GND        | Ground       |
