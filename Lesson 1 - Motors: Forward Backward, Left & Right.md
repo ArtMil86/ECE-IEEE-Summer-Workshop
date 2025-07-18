@@ -88,8 +88,6 @@ void setup() {
   stopAll(); // Optional: stop everything at start
 }
 ```
-📤 Upload this code to your robot to test the pin setup.
-
 Then, in `stopAll()`, set the speed for both `M1_SPD` & `M2_SPD` to 0:
 ```cpp
 void stopAll() {
@@ -97,6 +95,8 @@ void stopAll() {
   analogWrite(M2_SPD, 0);
 }
 ```
+📤 Upload this code to your robot to test the pin setup.
+
 ---
 
 ## ⚙️ Understanding the Code Functions
