@@ -24,6 +24,8 @@ Using this **time-of-flight**, you can calculate how far away the object is!
 
 ### 🌊 How It Works
 
+<img width="500" height="268" alt="image" src="https://github.com/user-attachments/assets/e8c86b76-aa77-4b8f-9b4b-add5b7c4ceb9" />
+
 * You trigger the sensor with a 10µs pulse on the **Trig** pin
 * The sensor responds by sending a pulse on the **Echo** pin
 * The width of the echo pulse tells you how far the object is
