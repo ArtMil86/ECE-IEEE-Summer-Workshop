@@ -13,6 +13,8 @@
 
 ## 🧩 What Is an LED Matrix?
 
+<img width="933" height="305" alt="image" src="https://github.com/user-attachments/assets/b9b7e387-ab39-4260-b71d-16b530cffe42" />
+
 An **LED matrix** is a grid of small LEDs arranged in rows and columns. The 8x16 matrix has:
 
 * **8 rows** tall
