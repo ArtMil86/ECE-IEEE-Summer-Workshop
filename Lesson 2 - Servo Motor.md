@@ -38,7 +38,7 @@ The servo receives **PWM signals** from the Arduino. The signal width determines
 
 ## 🔌 Pin Wiring Table
 
-<img width="369" height="251" alt="image" src="https://github.com/user-attachments/assets/c27bf2eb-c8e7-4e62-a981-c70dd455c5f5" />
+<img width="269" height="251" alt="image" src="https://github.com/user-attachments/assets/c27bf2eb-c8e7-4e62-a981-c70dd455c5f5" />
 
 | Servo Wire   | Connect To |
 | ------------ | ---------- |
