@@ -64,6 +64,20 @@ void loop() {
   // Repeats forever after setup runs
 }
 ```
+These are followed by your **custom functions** like `driveForward()` or `turnLeft()` that you define below `loop()`. You can call them in `loop()` anytime.
+
+---
+
+## ⚡ Important Safety + Power Tip!
+
+✅ When uploading code to the robot:
+
+* Make sure the **robot switch is OFF** before uploading code.
+* Once uploaded, **unplug the USB** and then **turn ON the robot switch** to give power from the battery.
+
+🔋 The motors require **more power** than the computer USB port provides. The switch sends power from the batteries to the whole system (including the motors).
+
+🚫 Leaving the switch ON while uploading may cause communication or power issues. Always upload with the robot **switched OFF**, then turn ON when you're ready to run.
 
 ---
 
@@ -105,6 +119,8 @@ void stopAll() {
 * **`digitalWrite(pin, HIGH/LOW)`** sets the **direction** of the motor (forward or reverse).
 * **`analogWrite(pin, value)`** sets the **speed** (0–255) using PWM (Pulse Width Modulation).
 
+> 🧠 **Important Tip**: Every robot may have slightly different wiring. On some robots, `digitalWrite(..., HIGH)` may make the motor go **forward**, but on others it may go **backward**. If your robot moves the wrong way, try flipping the `HIGH`/`LOW` values for that motor's direction pin!
+
 ---
 
 ## 🚗 Step 2: Drive Forward (Example)
@@ -132,6 +148,31 @@ void loop() {
 3. Flip the switch on the robot car to see it move forward!
 
 🧪 Try changing HIGH and LOW for direction pins — your wiring may vary.
+
+---
+
+## 🔄 Step 3: Drive Backward
+
+To go backward, **flip the direction** of both motors:
+
+```cpp
+void loop() {
+  digitalWrite(M1_DIR, LOW);    // LOW = reverse (if HIGH was forward)
+  analogWrite(M1_SPD, 200);
+
+  digitalWrite(M2_DIR, LOW);
+  analogWrite(M2_SPD, 200);
+
+  delay(2000);
+
+  stopAll();
+  delay(1000);
+}
+```
+
+> 🔁 Try both `HIGH` and `LOW` for each direction pin to discover which one is forward or backward for **your robot**. Each side may behave differently!
+
+> 🧠 Pro Tip: **Forward and backward are just two different directions.** HIGH = spin one way, LOW = spin the opposite way. You decide which is which by testing your robot!
 
 ---
 
@@ -178,15 +219,15 @@ void driveForward() {
 // 🔧 Your Challenge: Write these yourself!
 
 void driveBackward() {
-  // 🔁 Hint: Flip direction pins
+ 
 }
 
 void turnLeft() {
-  // ⬅️ Hint: Stop left, spin right
+  
 }
 
 void turnRight() {
-  // ➡️ Hint: Stop right, spin left
+  
 }
 
 void stopAll() {
