@@ -82,6 +82,8 @@ Each pattern is **16 bytes long**, one for each column!
 
 ## 🎨 Step 2: Design Your Pattern
 
+<img width="405" height="380" alt="image" src="https://github.com/user-attachments/assets/d51d864f-64ee-4f54-8e46-9f01385204cc" />
+
 Go to [dotmatrixtool.com](http://dotmatrixtool.com/#)
 
 ### How to use the tool:
