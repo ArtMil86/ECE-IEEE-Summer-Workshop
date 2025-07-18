@@ -108,12 +108,14 @@ Each HEX value controls one column of the matrix.
 
 The hex values: 
 
-<img width="958" height="252" alt="image" src="https://github.com/user-attachments/assets/e90b8c24-98fe-489e-ab46-5901793aa03e" />
+<img width="980" height="252" alt="image" src="https://github.com/user-attachments/assets/c9eb84b7-e8b0-4f53-87c6-2d24c5b8cdf5" />
+
 ```cpp
 unsigned char smile[] = {
 0x00, 0x00, 0x40, 0x20, 0x10, 0x08, 0x04, 0xfa, 0x04, 0x08, 0x10, 0x20, 0x40, 0x00, 0x00, 0x00
 };
 ```
+
 
 ---
 
