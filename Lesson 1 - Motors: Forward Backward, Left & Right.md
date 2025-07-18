@@ -11,6 +11,7 @@
 ---
 
 ## 🧠 What Is a Motor?
+<img width="631" height="480" alt="image" src="https://github.com/user-attachments/assets/d728225c-4062-40ec-b4a9-225bc5d6d70f" />
 
 A motor converts electrical energy into **motion**.
 Your robot has **4 wheels**, but only **2 motor channels** — one per side:
