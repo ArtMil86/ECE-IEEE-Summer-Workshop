@@ -1,0 +1,125 @@
+#include <Servo.h>
+
+// === Motor Pins ===
+#define M1_DIR 4
+#define M1_PWM 5
+#define M2_DIR 2
+#define M2_PWM 6
+
+// === Servo Pin ===
+#define SERVO_PIN A3
+Servo myServo;
+
+// === Ultrasonic Sensor ===
+#define TRIG_PIN 12
+#define ECHO_PIN 13
+long duration;
+float distance;
+
+// === LED Matrix ===
+#define SCL_Pin A5
+#define SDA_Pin A4
+unsigned char smileFace[] = {
+  0x00,0x00,0x42,0x24,0x18,0x24,0x42,0x00,
+  0x00,0x00,0x42,0x24,0x18,0x24,0x42,0x00
+};
+
+unsigned char clear[] = {
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+};
+
+void setup() {
+  // Setup motors
+  pinMode(M1_DIR, OUTPUT); pinMode(M1_PWM, OUTPUT);
+  pinMode(M2_DIR, OUTPUT); pinMode(M2_PWM, OUTPUT);
+
+  // Setup servo
+  myServo.attach(SERVO_PIN);
+
+  // Setup ultrasonic
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+
+  // Setup LED Matrix
+  pinMode(SCL_Pin, OUTPUT); pinMode(SDA_Pin, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  // === 1. Test Motors ===
+  Serial.println("Testing Motors...");
+  digitalWrite(M1_DIR, LOW); analogWrite(M1_PWM, 150);
+  digitalWrite(M2_DIR, HIGH); analogWrite(M2_PWM, 150);
+  delay(5000);
+  analogWrite(M1_PWM, 0); analogWrite(M2_PWM, 0);
+
+  // === 2. Test Servo Sweep ===
+  Serial.println("Testing Servo Sweep...");
+  for (int i = 0; i <= 180; i += 2) {
+    myServo.write(i);
+    delay(10);
+  }
+  for (int i = 180; i >= 0; i -= 2) {
+    myServo.write(i);
+    delay(10);
+  }
+  delay(1000);
+
+  // === 3. Test Ultrasonic ===
+  Serial.println("Testing Ultrasonic Sensor...");
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  duration = pulseIn(ECHO_PIN, HIGH);
+  distance = (duration / 2.0) / 29.1;
+  Serial.print("Distance: "); Serial.print(distance); Serial.println(" cm");
+  delay(1000);
+
+  // === 4. Test LED Matrix ===
+  Serial.println("Testing LED Matrix...");
+  matrix_display(smileFace);
+  delay(5000);
+  matrix_display(clear);
+  delay(3000);
+}
+
+void matrix_display(unsigned char matrix_value[]) {
+  IIC_start();
+  IIC_send(0xC0);
+  for (int i = 0; i < 16; i++) {
+    IIC_send(matrix_value[i]);
+  }
+  IIC_end();
+  IIC_start();
+  IIC_send(0x8A);
+  IIC_end();
+}
+
+void IIC_start() {
+  digitalWrite(SCL_Pin, HIGH); delayMicroseconds(3);
+  digitalWrite(SDA_Pin, HIGH); delayMicroseconds(3);
+  digitalWrite(SDA_Pin, LOW); delayMicroseconds(3);
+}
+
+void IIC_send(unsigned char send_data) {
+  for (char i = 0; i < 8; i++) {
+    digitalWrite(SCL_Pin, LOW);
+    delayMicroseconds(3);
+    digitalWrite(SDA_Pin, (send_data & 0x01));
+    delayMicroseconds(3);
+    digitalWrite(SCL_Pin, HIGH);
+    delayMicroseconds(3);
+    send_data >>= 1;
+  }
+}
+
+void IIC_end() {
+  digitalWrite(SCL_Pin, LOW); delayMicroseconds(3);
+  digitalWrite(SDA_Pin, LOW); delayMicroseconds(3);
+  digitalWrite(SCL_Pin, HIGH); delayMicroseconds(3);
+  digitalWrite(SDA_Pin, HIGH); delayMicroseconds(3);
+}
