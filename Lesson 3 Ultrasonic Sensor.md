@@ -40,6 +40,8 @@ inches = (duration / 2.0) / 74.0;
 
 ## 🔌 Wiring Instructions
 
+<img width="540" height="357" alt="image" src="https://github.com/user-attachments/assets/4c226e52-1172-4454-a67d-2036745b1e43" />
+
 | HC-SR04 Pin | Connect To |
 | ----------- | ---------- |
 | VCC         | 5V         |
