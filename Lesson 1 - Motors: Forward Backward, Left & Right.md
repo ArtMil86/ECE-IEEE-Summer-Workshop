@@ -44,6 +44,9 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 | M1      | Left Wheels (x2)  | D4            | D5              |
 | M2      | Right Wheels (x2) | D2            | D6              |
 
+<img width="640" height="283" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
+
+
 ⚠️ Although you have 4 motors total, they are **grouped in pairs** (left and right) — so you only need 2 control channels.
 
 ---
