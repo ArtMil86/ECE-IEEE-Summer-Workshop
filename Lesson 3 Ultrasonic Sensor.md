@@ -1,6 +1,6 @@
-# 🛰 Lesson 3 — Ultrasonic Sensor (Keyestudio 4WD BT Car)
+#  Lesson 3 — Ultrasonic Sensor (Keyestudio 4WD BT Car)
 
-## 🎯 Objectives
+##  Objectives
 
 * Understand how an **ultrasonic sensor** measures distance using sound waves.
 * Control the **Trigger** and read the **Echo** pin to calculate time-of-flight.
@@ -10,7 +10,7 @@
 
 ---
 
-## 🧐 What Is an Ultrasonic Sensor?
+##  What Is an Ultrasonic Sensor?
 
 The **HC-SR04 ultrasonic sensor** is like sonar for your robot.
 
@@ -20,9 +20,9 @@ The **HC-SR04 ultrasonic sensor** is like sonar for your robot.
 
 Using this **time-of-flight**, you can calculate how far away the object is!
 
-> 🔧 It uses the **speed of sound** (343 meters/sec) to convert time into distance.
+>  It uses the **speed of sound** (343 meters/sec) to convert time into distance.
 
-### 🌊 How It Works
+###  How It Works
 
 <img width="500" height="268" alt="image" src="https://github.com/user-attachments/assets/e8c86b76-aa77-4b8f-9b4b-add5b7c4ceb9" />
 
@@ -30,7 +30,7 @@ Using this **time-of-flight**, you can calculate how far away the object is!
 * The sensor responds by sending a pulse on the **Echo** pin
 * The width of the echo pulse tells you how far the object is
 
-### ⌚ Time and Distance Formulas
+###  Time and Distance Formulas
 
 ```
 duration = pulseIn(echoPin, HIGH);
@@ -40,7 +40,7 @@ inches = (duration / 2.0) / 74.0;
 
 ---
 
-## 🔌 Wiring Instructions
+##  Wiring Instructions
 
 <img width="540" height="357" alt="image" src="https://github.com/user-attachments/assets/4c226e52-1172-4454-a67d-2036745b1e43" />
 
@@ -51,7 +51,7 @@ inches = (duration / 2.0) / 74.0;
 | TRIG        | D12        |
 | ECHO        | D13        |
 
-📌 **Tip:** The Echo pin must be on a digital pin that supports `pulseIn()`.
+ **Tip:** The Echo pin must be on a digital pin that supports `pulseIn()`.
 
 📷 Suggested images to add:
 
@@ -63,7 +63,7 @@ inches = (duration / 2.0) / 74.0;
 
 ---
 
-## 🧱 Arduino Program Structure
+##  Arduino Program Structure
 
 ```cpp
 void setup() {
@@ -77,7 +77,7 @@ void loop() {
 
 ---
 
-## ⚖️ Step 1: Setup Sensor Pins
+##  Step 1: Setup Sensor Pins
 
 ```cpp
 int trigPin = 12;
@@ -94,7 +94,7 @@ void setup() {
 
 ---
 
-## ⏱️ Step 2: Trigger the Sensor
+##  Step 2: Trigger the Sensor
 
 To take a measurement:
 
@@ -108,11 +108,11 @@ delayMicroseconds(10);
 digitalWrite(trigPin, LOW);
 ```
 
-🤔 Why so fast? The **10-microsecond pulse** is the signal to start the sonar ping.
+ Why so fast? The **10-microsecond pulse** is the signal to start the sonar ping.
 
 ---
 
-## 🔹 Step 3: Measure and Calculate Distance
+##  Step 3: Measure and Calculate Distance
 
 ```cpp
 long duration = pulseIn(echoPin, HIGH);
@@ -134,13 +134,13 @@ Serial.println(" inches");
 
 ---
 
-## 🖥️ How to Use Serial Monitor
+## 🖥 How to Use Serial Monitor
 
 * Click the **magnifying glass icon** in the top-right of the Arduino IDE.
 * Make sure the baud rate is **9600**.
 * Move your hand in front of the sensor and watch the distance change.
 
-📷 Suggested image:
+ Suggested image:
 
 ```markdown
 ![Serial Monitor Guide](/images/serial_monitor.png)
@@ -148,7 +148,7 @@ Serial.println(" inches");
 
 ---
 
-## 💻 Full Example Code
+##  Full Example Code
 
 ```cpp
 int trigPin = 12;
@@ -189,7 +189,7 @@ void loop() {
 
 ---
 
-## 🤬 Learn: What Is an `if` Statement?
+##  Learn: What Is an `if` Statement?
 
 An `if` statement lets your robot make decisions.
 
@@ -206,10 +206,10 @@ if (cm < 10) {
 
 ## 🌟 Student Challenges
 
-* 📱 Display a message like "Object Detected!" when something is close
-* ⚖️ Modify the math to convert distance differently
-* 🤖 Measure how far away you can detect your hand
-* ⚛️ Try adding an `if` statement to warn if object is < 10cm
+*  Display a message like "Object Detected!" when something is close
+*  Modify the math to convert distance differently
+*  Measure how far away you can detect your hand
+*  Try adding an `if` statement to warn if object is < 10cm
 
 ```cpp
 if (cm < 10) {
@@ -221,7 +221,7 @@ if (cm < 10) {
 
 ---
 
-## 📆 Quick Reference Table
+##  Quick Reference Table
 
 | Concept       | Function              | Description                                   |
 | ------------- | --------------------- | --------------------------------------------- |
