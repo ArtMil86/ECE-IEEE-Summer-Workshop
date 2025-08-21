@@ -234,5 +234,5 @@ if (cm < 10) {
 
 ---
 
-👉 [Next: Lesson 4 - lED Matrix](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%204%20-%208x16%20LED%20Matrix.md)
+👉 [Next: Lesson 4 - LED Matrix](https://github.com/ArtMil86/ECE-IEEE-Summer-Workshop/blob/main/Lesson%204%20-%208x16%20LED%20Matrix.md)
 
