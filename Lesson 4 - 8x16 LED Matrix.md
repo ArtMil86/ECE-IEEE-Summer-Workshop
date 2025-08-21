@@ -22,7 +22,7 @@ So, 8 × 16 = **128 LEDs total**!
 
 Each LED can be turned **ON** or **OFF** individually using special data called **binary** or **hexadecimal**.
 
-### 🔦 Real-World Examples
+###  Real-World Examples
 
 * Emoji faces 🤖
 * Arrow indicators ↔️
