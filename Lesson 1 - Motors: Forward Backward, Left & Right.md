@@ -1,6 +1,6 @@
-# 🚗 Lesson 1 — Motor Control (4WD Arduino Robot)
+#  Lesson 1 — Motor Control (4WD Arduino Robot)
 
-## 🎯 Objectives
+##  Objectives
 
 * Understand what a motor is and how it moves the robot.
 * Learn how 4 motors are driven using 2 control channels via a motor driver (L298P).
@@ -10,7 +10,7 @@
 
 ---
 
-## 🧠 What Is a Motor?
+##  What Is a Motor?
 <img width="531" height="380" alt="image" src="https://github.com/user-attachments/assets/d728225c-4062-40ec-b4a9-225bc5d6d70f" />
 
 A motor converts electrical energy into **motion**.
@@ -26,7 +26,7 @@ Each motor channel uses:
 
 ---
 
-## 🧰 The Motor Driver (L298P)
+##  The Motor Driver (L298P)
 
 The **motor driver** allows the Arduino to safely control high-power motors using low-power signals:
 
@@ -37,7 +37,7 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 
 ---
 
-## 🔌 Pinout Table
+##  Pinout Table
 
 <img width="440" height="183" alt="image" src="https://github.com/user-attachments/assets/3d528723-226c-42f8-8f2d-418e5282f7c2" />
 
@@ -51,7 +51,7 @@ PWM = **Pulse Width Modulation**, a way of simulating variable power using fast 
 
 ---
 
-## 🧑‍💻 Basic Arduino Program Structure
+##  Basic Arduino Program Structure
 
 Every Arduino sketch has two core functions:
 
@@ -75,13 +75,13 @@ These are followed by your **custom functions** like `driveForward()` or `turnLe
 * Make sure the **robot switch is OFF** before uploading code.
 * Once uploaded, **unplug the USB** and then **turn ON the robot switch** to give power from the battery.
 
-🔋 The motors require **more power** than the computer USB port provides. The switch sends power from the batteries to the whole system (including the motors).
+ The motors require **more power** than the computer USB port provides. The switch sends power from the batteries to the whole system (including the motors).
 
 🚫 Leaving the switch ON while uploading may cause communication or power issues. Always upload with the robot **switched OFF**, then turn ON when you're ready to run.
 
 ---
 
-## 🔧 Step 1: Setup Motor Pins
+##  Step 1: Setup Motor Pins
 
 Start by defining which pins control each motor side:
 
@@ -119,11 +119,11 @@ void stopAll() {
 * **`digitalWrite(pin, HIGH/LOW)`** sets the **direction** of the motor (forward or reverse).
 * **`analogWrite(pin, value)`** sets the **speed** (0–255) using PWM (Pulse Width Modulation).
 
-> 🧠 **Important Tip**: Every robot may have slightly different wiring. On some robots, `digitalWrite(..., HIGH)` may make the motor go **forward**, but on others it may go **backward**. If your robot moves the wrong way, try flipping the `HIGH`/`LOW` values for that motor's direction pin!
+>  **Important Tip**: Every robot may have slightly different wiring. On some robots, `digitalWrite(..., HIGH)` may make the motor go **forward**, but on others it may go **backward**. If your robot moves the wrong way, try flipping the `HIGH`/`LOW` values for that motor's direction pin!
 
 ---
 
-## 🚗 Step 2: Drive Forward (Example)
+##  Step 2: Drive Forward (Example)
 
 This makes both sides spin forward for 2 seconds:
 
@@ -147,7 +147,7 @@ void loop() {
 2. Then unplug the blue cable from the robot
 3. Flip the switch on the robot car to see it move forward!
 
-🧪 Try changing HIGH and LOW for direction pins — your wiring may vary.
+ Try changing HIGH and LOW for direction pins — your wiring may vary.
 
 ---
 
@@ -170,9 +170,9 @@ void loop() {
 }
 ```
 
-> 🔁 Try both `HIGH` and `LOW` for each direction pin to discover which one is forward or backward for **your robot**. Each side may behave differently!
+>  Try both `HIGH` and `LOW` for each direction pin to discover which one is forward or backward for **your robot**. Each side may behave differently!
 
-> 🧠 Pro Tip: **Forward and backward are just two different directions.** HIGH = spin one way, LOW = spin the opposite way. You decide which is which by testing your robot!
+>  Pro Tip: **Forward and backward are just two different directions.** HIGH = spin one way, LOW = spin the opposite way. You decide which is which by testing your robot!
 
 ---
 
@@ -199,7 +199,7 @@ void loop() {
   stopAll();          // Always stop after motion
   delay(2000);
 
-  // 🧠 Challenge: Uncomment and complete these after testing forward
+  //  Challenge: Uncomment and complete these after testing forward
   // driveBackward();
   // turnLeft();
   // turnRight();
@@ -208,7 +208,7 @@ void loop() {
 // === MOVEMENT FUNCTIONS ===
 
 void driveForward() {
-  // 💡 Hint: Set both motors to spin in same direction
+  //  Hint: Set both motors to spin in same direction
   digitalWrite(M1_DIR, HIGH);
   analogWrite(M1_SPD, 200);
 
@@ -216,7 +216,7 @@ void driveForward() {
   analogWrite(M2_SPD, 200);
 }
 
-// 🔧 Your Challenge: Write these yourself!
+//  Your Challenge: Write these yourself!
 
 void driveBackward() {
  
@@ -236,11 +236,11 @@ void stopAll() {
 }
 ```
 
-📤 Upload this code and test it after completing your custom functions!
+ Upload this code and test it after completing your custom functions!
 
 ---
 
-## 🎯 Student Challenges
+##  Student Challenges
 
 Once you've tested `driveForward()`, try these:
 
@@ -249,11 +249,11 @@ Once you've tested `driveForward()`, try these:
 * ⚡ Try speeds like 100, 150, and 255 to compare
 * 🧠 Bonus: Turn right **backwards**, turn left **backwards**, then move on
 
-⏳ Don't spend too long on this! Move on to Lesson 2 if you've mastered it.
+ Don't spend too long on this! Move on to Lesson 2 if you've mastered it.
 
 ---
 
-## 📦 Quick Reference Table
+##  Quick Reference Table
 
 | Concept    | Function              | Description                     |
 | ---------- | --------------------- | ------------------------------- |
