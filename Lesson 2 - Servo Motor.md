@@ -66,7 +66,7 @@ delay(15);
 * `delay(1000)` → 1 second
 * `delay(15)` → 15 **milliseconds**, or 0.015 seconds
 
-### ⏳ Why It Matters for Servos
+###  Why It Matters for Servos
 
 Servos **don’t instantly jump** to a new angle. They need time to rotate.
 
@@ -144,7 +144,7 @@ Try modifying the code to explore different behaviors:
 *  Try sweeping from 45° to 135° only
 *  Bonus: Try jumping to random angles with `random(0, 180)`
 
-⏳ Don't stress about perfection — explore and observe!
+ Don't stress about perfection — explore and observe!
 
 ---
 
