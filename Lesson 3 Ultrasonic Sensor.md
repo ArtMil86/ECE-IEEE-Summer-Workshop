@@ -234,4 +234,4 @@ if (cm < 10) {
 
 ---
 
-👉 [Next: Lesson 4 - IR Remote Control](./lesson4-ir.md)
+👉 [Next: Lesson 4 - IR Remote Control](./Lesson 4 - 8x16 LED Matrix.md)
